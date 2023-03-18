@@ -55,9 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
             // ignore: prefer_const_constructors, sized_box_for_whitespace
             child: Text('CHART!'),
           ),
-          Card(
-            color: Colors.green,
-            child: Text('Here is The List'),
+          Column(
+            children: transactions.map((tx) {
+              return Card(child: Text(tx.title));
+            }).toList(),
           )
         ],
       ),
