@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> transactions = [
     Transaction(id: 't1', title: 'sepatu', amount: 100, date: DateTime.now()),
     Transaction(id: 't2', title: 'baju', amount: 200.50, date: DateTime.now()),
-    Transaction(id: 't3', title: 'sepatu', amount: 4500, date: DateTime.now()),
+    Transaction(id: 't3', title: 'sepatu', amount: 450, date: DateTime.now()),
   ];
 
   @override
@@ -60,11 +60,29 @@ class _MyHomePageState extends State<MyHomePage> {
               return Row(
                 children: [
                   Container(
-                    color: Colors.cyanAccent,
-                    child: Text("${tx.amount}usd"),
+                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.deepPurple, width: 2)),
+                    child: Text("${tx.amount} usd",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.deepPurple)),
                   ),
                   Column(
-                    children: [Text(tx.title), Text(tx.date.toString())],
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        tx.title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 17),
+                      ),
+                      Text(
+                        tx.date.toString(),
+                        style: TextStyle(fontSize: 13, color: Colors.grey),
+                      )
+                    ],
                   )
                 ],
               );
