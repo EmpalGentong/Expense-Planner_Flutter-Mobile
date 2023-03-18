@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore
 
+import 'package:expense_tracker_mobile_flutter/transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,6 +32,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<Transaction> transactions = [
+    Transaction(id: 't1', title: 'sepatu', amount: 100, date: DateTime.now()),
+    Transaction(id: 't2', title: 'baju', amount: 200.50, date: DateTime.now()),
+    Transaction(id: 't3', title: 'sepatu', amount: 4500, date: DateTime.now()),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
