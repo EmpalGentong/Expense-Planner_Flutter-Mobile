@@ -1,7 +1,9 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unnecessary_brace_in_string_interps
 
 import 'package:expense_tracker_mobile_flutter/transaction.dart';
 import 'package:flutter/material.dart';
+
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +40,12 @@ class _MyHomePageState extends State<MyHomePage> {
     Transaction(id: 't3', title: 'sepatu', amount: 450, date: DateTime.now()),
   ];
 
+  // late String titleInput;
+  // late String amountInput;
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         // ignore: prefer_const_literals_to_create_immutables
         children: <Widget>[
@@ -55,6 +63,39 @@ class _MyHomePageState extends State<MyHomePage> {
             // ignore: prefer_const_constructors, sized_box_for_whitespace
             child: Text('CHART!'),
           ),
+          Card(
+              elevation: 5,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                      controller: titleController,
+                      // onChanged: (value) {
+                      //   titleInput = value;
+                      // },
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Amount'),
+                      controller: amountController,
+                      // onChanged: (value) {
+                      // amountInput = value;
+                      // },
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        print(
+                            "${titleController.text} // ${amountController.text}");
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.amber),
+                      child: Text('Add'),
+                    )
+                  ],
+                ),
+              )),
           Column(
             children: transactions.map((tx) {
               return Row(
@@ -64,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.deepPurple, width: 2)),
-                    child: Text("${tx.amount} usd",
+                    child: Text("\$ ${tx.amount}",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 19,
@@ -79,8 +120,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontWeight: FontWeight.bold, fontSize: 17),
                       ),
                       Text(
-                        tx.date.toString(),
-                        style: TextStyle(fontSize: 13, color: Colors.grey),
+                        DateFormat.yMMMMEEEEd().format(tx.date),
+                        style: TextStyle(fontSize: 13, color: Colors.black),
                       )
                     ],
                   )
