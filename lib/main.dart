@@ -57,7 +57,17 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Column(
             children: transactions.map((tx) {
-              return Card(child: Text(tx.title));
+              return Row(
+                children: [
+                  Container(
+                    color: Colors.cyanAccent,
+                    child: Text("${tx.amount}usd"),
+                  ),
+                  Column(
+                    children: [Text(tx.title), Text(tx.date.toString())],
+                  )
+                ],
+              );
             }).toList(),
           )
         ],
