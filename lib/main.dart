@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Budgeting app',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Budget Expense Planner'),
     );
   }
 }
@@ -38,14 +38,18 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        // ignore: prefer_const_literals_to_create_immutables
         children: <Widget>[
           Card(
-            color: Color.fromARGB(255, 90, 253, 98),
+            color: Colors.blue,
             elevation: 5,
             // ignore: prefer_const_constructors, sized_box_for_whitespace
-            child: Container(width: double.infinity, child: Text('CHART!')),
+            child: Text('CHART!'),
           ),
           Card(
+            color: Colors.green,
             child: Text('Here is The List'),
           )
         ],
