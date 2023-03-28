@@ -1,8 +1,5 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, unnecessary_brace_in_string_interps
-
-import 'package:expense_tracker_mobile_flutter/widgets/new_transaction.dart';
-import 'package:expense_tracker_mobile_flutter/widgets/transaction_list.dart';
-import 'package:expense_tracker_mobile_flutter/widgets/user_transaction.dart';
+import './widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
