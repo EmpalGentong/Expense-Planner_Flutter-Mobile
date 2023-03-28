@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
   final Function addTx;
-  NewTransaction(this.addTx);
+  NewTransaction(this.addTx, {super.key});
 
   final titleController = TextEditingController();
   final amountController = TextEditingController();
@@ -12,16 +12,16 @@ class NewTransaction extends StatelessWidget {
     return Card(
         elevation: 5,
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               TextField(
-                decoration: InputDecoration(labelText: 'Title'),
+                decoration: const InputDecoration(labelText: 'Title'),
                 controller: titleController,
               ),
               TextField(
-                decoration: InputDecoration(labelText: 'Amount'),
+                decoration: const InputDecoration(labelText: 'Amount'),
                 controller: amountController,
               ),
               ElevatedButton(
@@ -30,7 +30,7 @@ class NewTransaction extends StatelessWidget {
                       double.parse(amountController.text));
                 },
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.amber),
-                child: Text('Add'),
+                child: const Text('Add'),
               )
             ],
           ),
